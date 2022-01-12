@@ -15,12 +15,15 @@ function App() {
 	const [movieSearch, setmovieSearch] = useState("Adventure");
 
 	const movieRequest = async (movieSearch) => {
-		const url = `http://www.omdbapi.com/?s=${movieSearch}&apikey=f3f14679`;
-		const response = await fetch(url);
-		const responseJson = await response.json();
-		console.log(responseJson);
-		if (responseJson.Search) {
-			setmovies(responseJson.Search);
+		const url = `https://www.omdbapi.com/?s=${movieSearch}&apikey=f3f14679`;
+		try {
+			const response = await fetch(url);
+			const responseJson = await response.json();
+			if (responseJson.Search) {
+				setmovies(responseJson.Search);
+			}
+		} catch (e) {
+			console.error(e);
 		}
 	};
 	useEffect(() => {
