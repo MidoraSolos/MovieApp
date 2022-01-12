@@ -20,11 +20,6 @@ body {
 }
 
 .movie-wrap::-webkit-scrollbar {
-	/* display: none; */
-	/* width: 12px; */
-}
-
-.movie-wrap::-webkit-scrollbar {
 	width: 12px;
 }
 
