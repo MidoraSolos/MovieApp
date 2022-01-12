@@ -3,7 +3,8 @@ import React from "react";
 
 const MovieList = (props) => {
 	const FavoriteComponent = props.FavoriteComponent;
-	if (props.movies.length === 0) return <p>Loading..</p>;
+	if (props.movies === null || props.movies?.length === 0)
+		return <p>No Movies Found</p>;
 	return (
 		<>
 			{props.movies.map((movie, index) => (

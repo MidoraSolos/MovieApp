@@ -42,17 +42,22 @@ function App() {
 	};
 
 	const AddFavoriteMovie = (movie) => {
-		const newFavoriteList = favorites.filter((e) => {
-			if (e.imdbID !== movie.imdbID) {
-				return e;
+		if (favorites === null) {
+			setFavorites([movie]);
+			saveToLocalStorage([movie]);
+		} else {
+			const newFavoriteList = favorites.filter((e) => {
+				if (e.imdbID !== movie.imdbID) {
+					return e;
+				}
+				return null;
+			});
+			console.log(favorites);
+			console.log(newFavoriteList);
+			if (newFavoriteList.length === favorites.length) {
+				setFavorites([...favorites, movie]);
+				saveToLocalStorage([...newFavoriteList, movie]);
 			}
-			return null;
-		});
-		console.log(favorites);
-		console.log(newFavoriteList);
-		if (newFavoriteList.length === favorites.length) {
-			setFavorites([...favorites, movie]);
-			saveToLocalStorage([...newFavoriteList, movie]);
 		}
 	};
 
