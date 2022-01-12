@@ -11,7 +11,7 @@ import RemoveFavorite from "./components/RemoveFavorite";
 function App() {
 	const [movies, setmovies] = useState([]);
 	const [favorites, setFavorites] = useState([]);
-	const [page, setPage] = useState(1);
+	// const [page, setPage] = useState(1);
 	const [movieSearch, setmovieSearch] = useState("Adventure");
 
 	const movieRequest = async (movieSearch) => {
@@ -43,6 +43,7 @@ function App() {
 			if (e.imdbID !== movie.imdbID) {
 				return e;
 			}
+			return null;
 		});
 		console.log(favorites);
 		console.log(newFavoriteList);
